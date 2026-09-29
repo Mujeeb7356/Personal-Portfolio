@@ -1,9 +1,3 @@
-/**
- * Portfolio JavaScript - Interactive Behaviors
- * Features: Dark/Light Mode, Mobile Navigation, Project Filtering,
- * Active Section Spy, Contact Form Validation, Toast Feedback.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMobileMenu();
@@ -13,14 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
 });
 
-/* ==========================================================================
-   1. Theme Toggle (Dark / Light) with LocalStorage & OS Preference
-   ========================================================================== */
 function initThemeToggle() {
   const themeToggleBtn = document.getElementById('theme-toggle');
   if (!themeToggleBtn) return;
 
-  // Retrieve saved preference or use OS scheme
   const savedTheme = localStorage.getItem('theme');
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
@@ -34,9 +24,6 @@ function initThemeToggle() {
   });
 }
 
-/* ==========================================================================
-   2. Mobile Navigation Drawer
-   ========================================================================== */
 function initMobileMenu() {
   const menuToggle = document.getElementById('mobile-menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
@@ -53,7 +40,7 @@ function initMobileMenu() {
       menuToggle.classList.add('is-active');
       menuToggle.setAttribute('aria-expanded', 'true');
       mobileNav.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      document.body.style.overflow = 'hidden'; 
     } else {
       mobileNav.classList.remove('open');
       menuToggle.classList.remove('is-active');
@@ -65,12 +52,10 @@ function initMobileMenu() {
 
   menuToggle.addEventListener('click', () => toggleMenu());
 
-  // Close when clicking on any mobile nav link
   navLinks.forEach(link => {
     link.addEventListener('click', () => toggleMenu(true));
   });
 
-  // Close on Escape key press
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
       toggleMenu(true);
@@ -78,9 +63,6 @@ function initMobileMenu() {
   });
 }
 
-/* ==========================================================================
-   3. Project Category Filter
-   ========================================================================== */
 function initProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
@@ -91,7 +73,6 @@ function initProjectFilters() {
     btn.addEventListener('click', () => {
       const selectedFilter = btn.getAttribute('data-filter');
 
-      // Update active state on buttons
       filterBtns.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
@@ -99,7 +80,6 @@ function initProjectFilters() {
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
 
-      // Filter project cards
       projectCards.forEach(card => {
         const category = card.getAttribute('data-category');
         if (selectedFilter === 'all' || category === selectedFilter) {
@@ -120,9 +100,6 @@ function initProjectFilters() {
   });
 }
 
-/* ==========================================================================
-   4. Contact Form Validation & Simulated Submission
-   ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
@@ -150,7 +127,6 @@ function initContactForm() {
     }
   }
 
-  // Clear errors on user input
   [nameInput, emailInput, messageInput].forEach(input => {
     if (!input) return;
     input.addEventListener('input', () => {
@@ -163,7 +139,6 @@ function initContactForm() {
 
     let isValid = true;
 
-    // Validate Name
     if (!nameInput.value.trim()) {
       setError(nameInput, true);
       isValid = false;
@@ -171,7 +146,6 @@ function initContactForm() {
       setError(nameInput, false);
     }
 
-    // Validate Email
     if (!emailInput.value.trim() || !validateEmail(emailInput.value.trim())) {
       setError(emailInput, true);
       isValid = false;
@@ -179,7 +153,6 @@ function initContactForm() {
       setError(emailInput, false);
     }
 
-    // Validate Message (at least 15 chars)
     if (!messageInput.value.trim() || messageInput.value.trim().length < 15) {
       setError(messageInput, true);
       isValid = false;
@@ -189,7 +162,6 @@ function initContactForm() {
 
     if (!isValid) return;
 
-    // Submit state (simulated async request)
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
@@ -198,7 +170,6 @@ function initContactForm() {
       submitBtn.disabled = false;
       form.reset();
 
-      // Show toast
       showToast();
     }, 1200);
   });
@@ -207,7 +178,6 @@ function initContactForm() {
     if (!toast) return;
     toast.classList.add('show');
 
-    // Auto-dismiss after 5 seconds
     const dismissTimer = setTimeout(() => {
       toast.classList.remove('show');
     }, 5000);
@@ -221,9 +191,6 @@ function initContactForm() {
   }
 }
 
-/* ==========================================================================
-   5. Active Section Scroll Spy
-   ========================================================================== */
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const desktopLinks = document.querySelectorAll('.desktop-nav .nav-link');
@@ -256,9 +223,6 @@ function initScrollSpy() {
   sections.forEach(section => observer.observe(section));
 }
 
-/* ==========================================================================
-   6. Back To Top
-   ========================================================================== */
 function initBackToTop() {
   const backToTopBtn = document.getElementById('back-to-top');
   if (!backToTopBtn) return;
