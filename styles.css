@@ -1,8 +1,4 @@
-/* ==========================================================================
-   Variables & Theme Setup
-   ========================================================================== */
 :root {
-  /* Color Palette - Dark Mode Defaults */
   --bg-primary: #0b0f19;
   --bg-secondary: #111827;
   --bg-tertiary: #1f2937;
@@ -13,8 +9,8 @@
   --text-secondary: #9ca3af;
   --text-muted: #6b7280;
 
-  --accent-primary: #6366f1;       /* Indigo */
-  --accent-secondary: #06b6d4;     /* Cyan */
+  --accent-primary: #6366f1;       
+  --accent-secondary: #06b6d4;     
   --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
   --accent-glow: rgba(99, 102, 241, 0.35);
 
@@ -43,7 +39,7 @@
   --shadow-glow: 0 0 40px -10px var(--accent-glow);
 }
 
-/* Light Theme Overrides */
+
 [data-theme="light"] {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
@@ -63,9 +59,6 @@
   --shadow-glow: 0 0 35px -5px rgba(99, 102, 241, 0.2);
 }
 
-/* ==========================================================================
-   Reset & Base Styles
-   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -140,9 +133,6 @@ input, textarea, select {
   text-align: center;
 }
 
-/* ==========================================================================
-   Typography & Utilities
-   ========================================================================== */
 .gradient-text {
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -183,7 +173,6 @@ input, textarea, select {
   line-height: 1.6;
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -242,9 +231,6 @@ input, textarea, select {
   width: 100%;
 }
 
-/* ==========================================================================
-   Header & Navigation
-   ========================================================================== */
 .site-header {
   position: fixed;
   top: 0;
@@ -398,9 +384,6 @@ input, textarea, select {
 .mobile-nav-link:hover,
 .mobile-nav-link.active { color: var(--accent-primary); }
 
-/* ==========================================================================
-   Hero Section
-   ========================================================================== */
 .hero-section {
   padding-top: 9.5rem;
   padding-bottom: 5.5rem;
@@ -530,7 +513,6 @@ input, textarea, select {
   transform: translateY(-2px);
 }
 
-/* Hero Visual Showcase */
 .hero-visual {
   position: relative;
 }
@@ -647,9 +629,6 @@ input, textarea, select {
   color: var(--text-secondary);
 }
 
-/* ==========================================================================
-   Experience & Education Timeline Section
-   ========================================================================== */
 .experience-section {
   background-color: var(--bg-secondary);
 }
@@ -755,9 +734,6 @@ input, textarea, select {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   Skills & Expertise Section
-   ========================================================================== */
 .skills-section {
   background-color: var(--bg-primary);
 }
@@ -859,9 +835,6 @@ input, textarea, select {
   transition: width 1s ease-in-out;
 }
 
-/* ==========================================================================
-   Services Section
-   ========================================================================== */
 .services-section {
   background-color: var(--bg-secondary);
 }
@@ -947,9 +920,6 @@ input, textarea, select {
   font-weight: 700;
 }
 
-/* ==========================================================================
-   Projects Section
-   ========================================================================== */
 .projects-section {
   background-color: var(--bg-primary);
 }
@@ -1231,9 +1201,6 @@ input, textarea, select {
 .project-link.secondary { color: var(--text-muted); }
 .project-link.secondary:hover { color: var(--text-primary); }
 
-/* ==========================================================================
-   Additional Info Card
-   ========================================================================== */
 .additional-info-section {
   padding: 2.5rem 0;
   background: var(--bg-secondary);
@@ -1296,9 +1263,6 @@ input, textarea, select {
   color: var(--text-primary);
 }
 
-/* ==========================================================================
-   Contact Section
-   ========================================================================== */
 .contact-section {
   background-color: var(--bg-primary);
 }
@@ -1397,7 +1361,6 @@ input, textarea, select {
   font-weight: bold;
 }
 
-/* Contact Form */
 .contact-form-col {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1496,7 +1459,6 @@ input, textarea, select {
 .btn-submit.loading .send-icon { display: none; }
 .btn-submit.loading .btn-spinner { display: inline-block; }
 
-/* Toast */
 .toast {
   position: fixed;
   bottom: 2rem;
@@ -1541,9 +1503,6 @@ input, textarea, select {
 .toast-close { font-size: 1.3rem; color: var(--text-muted); cursor: pointer; }
 .toast-close:hover { color: var(--text-primary); }
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
 .site-footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
@@ -1608,9 +1567,6 @@ input, textarea, select {
   transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   Responsive Breakpoints
-   ========================================================================== */
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
